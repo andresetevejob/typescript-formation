@@ -10,3 +10,12 @@ function barPercentage(foo?: { bar: number }) {
     //     ~~~~~~~~
     // Error: Object is possibly undefined.
   }
+
+  function foo(x: string | number | boolean) {
+    if (typeof x === "string") {
+      x; // type of x is string here
+      x = 1;
+      x; // type of x is number here
+    }
+    x; // type of x is number | boolean here
+  }
